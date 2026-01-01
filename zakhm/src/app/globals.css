@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0f1923;
+  --foreground: #eef2f6;
+  --primary: #2c3e50;
+  --primary-soft: #1b2b3a;
+  --accent: #e67e22;
+  --accent-soft: #f39c12;
+  --mint: #1abc9c;
+  --mint-soft: #48e3c7;
+  --soft-red: #e74c3c;
+  --surface-dark: rgba(255, 255, 255, 0.06);
+  --surface: rgba(255, 255, 255, 0.12);
+  --glow: rgba(26, 188, 156, 0.35);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-soft: var(--primary-soft);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-mint: var(--mint);
+  --color-mint-soft: var(--mint-soft);
+  --color-soft-red: var(--soft-red);
+  --color-surface-dark: var(--surface-dark);
+  --color-surface: var(--surface);
+  --font-heading: var(--font-cairo), var(--font-tajawal), sans-serif;
+  --font-body: var(--font-noto-sans-arabic), var(--font-tajawal), sans-serif;
+  --radius-lg: 1.5rem;
+  --radius-md: 1rem;
+}
+
+body {
+  background: radial-gradient(circle at top, rgba(26, 188, 156, 0.08), transparent 50%), var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+  direction: rtl;
+  min-height: 100vh;
+  position: relative;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+}
+
+.glass-card {
+  background: var(--surface-dark);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 60px rgba(17, 27, 41, 0.4);
+  backdrop-filter: blur(18px);
+}
+
+.glow-ring {
+  box-shadow: 0 0 40px var(--glow);
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, var(--mint-soft), var(--accent-soft));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.energy-track {
+  background: linear-gradient(270deg, rgba(230, 126, 34, 0.3), rgba(26, 188, 156, 0.6));
+}
+
+.confetti-piece {
+  position: absolute;
+  width: 6px;
+  height: 12px;
+  border-radius: 2px;
+  opacity: 0;
+  animation: confetti-fall 1.4s forwards ease-out;
+}
+
+@keyframes confetti-fall {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px) rotate(0deg);
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(60px) rotate(180deg);
+  }
+}
